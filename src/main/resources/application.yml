@@ -1,0 +1,65 @@
+spring:
+  config:
+    use-legacy-processing: true
+  profiles:
+    active: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/krishna
+    driverClassName: com.mysql.jdbc.Driver
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: welcome to the hello world!
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/krishna-qa
+    driverClassName: com.mysql.jdbc.Driver
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: welcome to the hello world!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/krishna-prod
+    driverClassName: com.mysql.jdbc.Driver
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: welcome to the hello world!
