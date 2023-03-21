@@ -9,10 +9,36 @@ spring:
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: dev1
   datasource:
     username: root
     url: jdbc:mysql://localhost:3306/krishna
+    driverClassName: com.mysql.jdbc.Driver
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: welcome to the hello world!
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+---
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/schooldb
     driverClassName: com.mysql.jdbc.Driver
     password: admin123
   jpa:
